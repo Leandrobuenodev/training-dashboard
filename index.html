@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progresso Físico — Leandro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff; --bg-alt: #f8f9fb; --bg-card: #ffffff;
+  --text: #1a1a1a; --text-secondary: #555; --text-muted: #999;
+  --border: #e5e7ec; --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
+  --red: #d32f2f; --red-bg: #fef2f2; --green: #15803d; --green-bg: #f0fdf4;
+  --yellow: #b45309; --yellow-bg: #fffbeb; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --radius: 12px; --radius-sm: 8px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-alt); color: var(--text); line-height: 1.5;
+  padding: 24px; max-width: 900px; margin: 0 auto;
+}
+h1 { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+.subtitle { color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px; box-shadow: var(--shadow); transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: var(--shadow-hover); }
+.card .label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.card .value { font-size: 28px; font-weight: 700; margin-top: 4px; }
+.card .sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.section-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; margin-top: 8px; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; }
+th { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; background: var(--bg-alt); }
+tr:hover td { background: #f4f5f9; }
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 600;
+}
+.badge-green { background: var(--green-bg); color: var(--green); }
+.badge-yellow { background: var(--yellow-bg); color: var(--yellow); }
+.badge-red { background: var(--red-bg); color: var(--red); }
+.badge-blue { background: var(--blue-bg); color: var(--blue); }
+.chart-container { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 24px; box-shadow: var(--shadow); }
+canvas { width: 100% !important; height: auto !important; }
+.obs { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; }
+.obs strong { color: var(--text); }
+@media (max-width: 600px) {
+  body { padding: 16px; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .card .value { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<h1>🏋️ Progresso Físico</h1>
+<p class="subtitle">Leandro Bueno · Calistenia · Retorno aos treinos · Julho 2026</p>
+
+<div class="grid">
+  <div class="card">
+    <div class="label">Treinos Realizados</div>
+    <div class="value">2</div>
+    <div class="sub">dias consecutivos</div>
+  </div>
+  <div class="card">
+    <div class="label">Completude Média</div>
+    <div class="value">75%</div>
+    <div class="sub">⬆️ 20/07: 80% · 21/07: 70%</div>
+  </div>
+  <div class="card">
+    <div class="label">Duração Média</div>
+    <div class="value">22 min</div>
+    <div class="sub">⬆️ 20/07: 25min · 21/07: 20min</div>
+  </div>
+  <div class="card">
+    <div class="label">Status Atual</div>
+    <div class="value" style="color: var(--green);">🔥 Ativo</div>
+    <div class="sub">2 treinos em 2 dias</div>
+  </div>
+</div>
+
+<h2 class="section-title">📋 Histórico de Treinos</h2>
+<table>
+<thead><tr><th>#</th><th>Data</th><th>Dia</th><th>Tipo</th><th>Duração</th><th>Completude</th><th>Destaque</th></tr></thead>
+<tbody>
+<tr>
+  <td>1</td><td>20/07</td><td>Dom</td><td>Full Body</td><td>25 min</td><td><span class="badge badge-green">80%</span></td>
+  <td>Volta aos treinos. 2 rodadas + 1/3. Perna tremendo.</td>
+</tr>
+<tr>
+  <td>2</td><td>21/07</td><td>Ter</td><td>Full Body (adaptado)</td><td>20 min</td><td><span class="badge badge-yellow">70%</span></td>
+  <td>Pé torcido. Adaptou: 3 séries de cada, cortou impacto.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 class="section-title">📈 Evolução por Exercício</h2>
+<div class="chart-container">
+  <table>
+  <thead><tr><th>Exercício</th><th>20/07 (Dom)</th><th>21/07 (Ter)</th><th>Evolução</th></tr></thead>
+  <tbody>
+  <tr><td>Flexão Inclinada</td><td>2x10 + 1x parou</td><td>3x10 ✅</td><td><span class="badge badge-green">⬆️ 3 séries completas</span></td></tr>
+  <tr><td>Agachamento Livre</td><td>2x12-15 + 1x parou</td><td>3 séries ✅</td><td><span class="badge badge-green">⬆️ 3 séries completas</span></td></tr>
+  <tr><td>Tríceps no Banco</td><td>2x8-10</td><td>3 séries ✅</td><td><span class="badge badge-green">⬆️ 3 séries completas</span></td></tr>
+  <tr><td>Prancha</td><td>25-30s ✅</td><td>—</td><td><span class="badge badge-yellow">Pulado (pé)</span></td></tr>
+  <tr><td>Step-up no Banco</td><td>10 cada perna ✅</td><td>1x20 (10 cada)</td><td><span class="badge badge-yellow">⏬ 1 série só</span></td></tr>
+  </tbody>
+  </table>
+</div>
+
+<h2 class="section-title">🎯 Metas da Semana</h2>
+<div class="obs">
+<strong>✅ 2/3 treinos concluídos</strong><br>
+■ Dia 1 (20/07) — Feito ✅<br>
+■ Dia 2 (21/07) — Feito (adaptado) ✅<br>
+□ Dia 3 (23/07 ou 24/07) — Pendente<br><br>
+<strong>Próximo treino:</strong> Tentar 3 rodadas completas sem adaptação. Pé recuperado? Se sim, adicionar prancha de volta.
+</div>
+
+<h2 class="section-title">💪 Recado do Jin</h2>
+<div class="obs">
+Dois treinos seguidos depois de meses parado. Pé torcido no segundo e mesmo assim foi lá e fez. <strong>Consistência > Intensidade.</strong> O shape não volta em uma semana, mas a disciplina volta em um dia — e você já recuperou ela.
+</div>
+
+<script>
+// Canvas chart for completude
+window.addEventListener('DOMContentLoaded', () => {
+  const c = document.getElementById('chart-completude');
+  if (!c) return;
+  const dpr = window.devicePixelRatio || 1;
+  const W = c.parentElement.clientWidth - 32;
+  const H = 180;
+  c.width = W * dpr; c.height = H * dpr;
+  c.style.width = W + 'px'; c.style.height = H + 'px';
+  const ctx = c.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const pad = { t: 16, b: 28, l: 44, r: 16 };
+  const cw = W - pad.l - pad.r, ch = H - pad.t - pad.b;
+  const labels = ['20/07', '21/07'];
+  const values = [80, 70];
+  const maxVal = 100;
+
+  ctx.strokeStyle = 'rgba(0,0,0,0.06)'; ctx.lineWidth = 0.5;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.t + (ch / 4) * i;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(W - pad.r, y); ctx.stroke();
+    ctx.fillStyle = '#999'; ctx.font = '9px Inter, sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText(maxVal - (maxVal / 4) * i + '%', pad.l - 8, y + 3);
+  }
+
+  const barW = Math.min(cw / labels.length * 0.5, 40);
+  const gap = cw / labels.length;
+  const colors = ['#15803d', '#b45309'];
+
+  values.forEach((v, i) => {
+    const x = pad.l + gap * i + (gap - barW) / 2;
+    const barH = (v / maxVal) * ch;
+    const y = pad.t + ch - barH;
+    ctx.fillStyle = colors[i];
+    ctx.beginPath();
+    ctx.moveTo(x, pad.t + ch);
+    ctx.lineTo(x, y + 3); ctx.quadraticCurveTo(x, y, x + 3, y);
+    ctx.lineTo(x + barW - 3, y); ctx.quadraticCurveTo(x + barW, y, x + barW, y + 3);
+    ctx.lineTo(x + barW, pad.t + ch);
+    ctx.closePath(); ctx.fill();
+
+    ctx.fillStyle = '#1a1a1a'; ctx.font = 'bold 10px Inter, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(v + '%', x + barW / 2, y - 6);
+
+    ctx.fillStyle = '#999'; ctx.font = '9px Inter, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(labels[i], pad.l + gap * i + gap / 2, H - 6);
+  });
+});
+</script>
+</body>
+</html>
